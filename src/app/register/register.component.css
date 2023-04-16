@@ -1,0 +1,5 @@
+.invalid-textbox {
+    border: 2px solid #ff4444; /* bright red */
+  box-shadow: 0 0 3px #ff4444; /* red shadow */
+  background-color: #ffcccc; /* light red background */
+  }

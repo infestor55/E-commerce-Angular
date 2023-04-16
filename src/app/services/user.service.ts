@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { User } from '../model/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,5 +15,15 @@ export class UserService {
 
   public login (loginData){
     return this.httpclient.post(this.PATH_OF_API + "/login", loginData, {headers: this.requestHeader})
+  }
+   selectedUser: User = {
+    name:'',
+    email:'',
+    password:'',
+    phone:'',
+    adress:''
+  }
+  public postUser(user: User){
+    return this.httpclient.post(this.PATH_OF_API +"/register", user);
   }
 }

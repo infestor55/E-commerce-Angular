@@ -1,35 +1,40 @@
-<!-- login -->
+<!-- Register -->
 <div class="contain py-16">
     <div class="max-w-lg mx-auto shadow px-6 py-7 rounded overflow-hidden">
         <h2 class="text-2xl uppercase font-medium mb-1">Create an account</h2>
-        <p class="text-gray-600 mb-6 text-sm">
-            Register for new cosutumer
-        </p>
-        <form action="#" method="post" autocomplete="off">
+        <form #signUpForm="ngForm" (ngSubmit)="onSubmit(signUpForm)">
             <div class="space-y-2">
                 <div>
                     <label for="name" class="text-gray-600 mb-2 block">Full Name</label>
                     <input type="text" name="name" id="name"
                         class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
-                        placeholder="fulan fulana">
+                        placeholder="fulan fulana" #name="ngModel" required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !name.valid}" [(ngModel)]="userService.selectedUser.name ">
+                        
                 </div>
                 <div>
                     <label for="email" class="text-gray-600 mb-2 block">Email address</label>
                     <input type="email" name="email" id="email"
                         class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
-                        placeholder="youremail.@domain.com">
+                        placeholder="youremail.@domain.com" #email="ngModel" [(ngModel)]="userService.selectedUser.email">
                 </div>
                 <div>
                     <label for="password" class="text-gray-600 mb-2 block">Password</label>
                     <input type="password" name="password" id="password"
                         class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
-                        placeholder="*******">
+                        placeholder="*******" #password="ngModel" [(ngModel)]="userService.selectedUser.password">
+                </div>
+                
+                <div>
+                    <label for="phone" class="text-gray-600 mb-2 block">Phone Number</label>
+                    <input type="text" name="phone" id="phone"
+                        class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
+                        placeholder="*******" #phone="ngModel" [(ngModel)]="userService.selectedUser.phone">
                 </div>
                 <div>
-                    <label for="confirm" class="text-gray-600 mb-2 block">Confirm password</label>
-                    <input type="password" name="confirm" id="confirm"
+                    <label for="adress" class="text-gray-600 mb-2 block">Adress</label>
+                    <input type="text" name="adress" id="adress"
                         class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
-                        placeholder="*******">
+                        placeholder="*******" #adress="ngModel" [(ngModel)]="userService.selectedUser.adress">
                 </div>
             </div>
             <div class="mt-6">
@@ -59,9 +64,9 @@
                 class="w-1/2 py-2 text-center text-white bg-red-600 rounded uppercase font-roboto font-medium text-sm hover:bg-red-500">google</a>
         </div>
         <!-- ./login with -->
-
-        <p class="mt-4 text-center text-gray-600">Already have account? <a href="login.html"
-                class="text-primary">Login now</a></p>
+        <div *ngIf="showSuccessMessage">
+        <p class="mt-4 text-center text-gray-600 ">Welcome to our plateform user please! <a routerLink="/login"
+                class="text-primary " >Login now</a></p> </div>
     </div>
 </div>
-<!-- ./login -->
+<!-- ./Register -->

@@ -1,9 +1,8 @@
-import { FileHandle } from "./file-handel.model";
 
 export interface product {
      name: string,
      description: string,
-     price: number,
+     price: string,
      color:string,
-     image: FileHandle[]
+     image: []
 }

@@ -16,7 +16,13 @@ import { RouterModule } from '@angular/router';
 import { CreateNewProductComponent } from './create-new-product/create-new-product.component';
 import { RegisterComponent } from './register/register.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { BabiesShopComponent } from './babies-shop/babies-shop.component';
+import { BabiesShopComponent } from './shops/babies-shop/babies-shop.component';
+import { ShopsListComponent } from './shops/shops-list/shops-list.component';
+import { KidsShopComponent } from './shops/kids-shop/kids-shop.component';
+import { MomsShopComponent } from './shops/moms-shop/moms-shop.component';
+import { ChildRearingComponent } from './shops/child-rearing/child-rearing.component';
+import { GamesToysComponent } from './shops/games-toys/games-toys.component';
+import { FurnitureComponent } from './shops/furniture/furniture.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +37,13 @@ import { BabiesShopComponent } from './babies-shop/babies-shop.component';
     CreateNewProductComponent,
     RegisterComponent,
     SidebarComponent,
-    BabiesShopComponent
+    BabiesShopComponent,
+    ShopsListComponent,
+    KidsShopComponent,
+    MomsShopComponent,
+    ChildRearingComponent,
+    GamesToysComponent,
+    FurnitureComponent
   ],
   imports: [
     BrowserModule,

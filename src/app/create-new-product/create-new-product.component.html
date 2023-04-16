@@ -5,39 +5,39 @@
         <p class="text-gray-600 mb-6 text-sm">
             Fill in the form to post your product
         </p>
-        <form #productForm= "ngForm" (ngSubmit)="addProduct(productForm)" method="post" autocomplete="off">
+        <form #productForm= "ngForm" (ngSubmit)="createProduct(productForm)" method="post" autocomplete="off">
             <div class="space-y-2">
                 <div>
                     <label for="name" class="text-gray-600 mb-2 block">Product Name</label>
                     <input type="text" name="name" id="name"
                         class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
-                        placeholder="Babies Product" [(ngModel)]="product.name">
+                        placeholder="Babies Product"  ngModel required>
                 </div>
                 <div>
                     <label for="Description" class="text-gray-600 mb-2 block">Product Description</label>
                     <input type="text" name="description" id="Description"
                         class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
-                        placeholder="Enter your product description here!" [(ngModel)]="product.description">
+                        placeholder="Enter your product description here!" ngModel required >
                 </div>
                 <div>
                     <label for="price" class="text-gray-600 mb-2 block">Product Price</label>
                     <input type="text" name="price" id="price"
                         class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
-                        placeholder="80$" [(ngModel)]="product.price">
+                        placeholder="80$" ngModel required>
                 </div>
                 
                 <div>
                     <label for="color" class="text-gray-600 mb-2 block">Product Color</label>
                     <input type="text" name="color" id="color"
                         class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
-                        placeholder="Blue" [(ngModel)]="product.color">
+                        placeholder="Blue" ngModel required>
                 </div>
                 <div>
                     <label for="image" class="text-gray-600 mb-2 block">Product Image</label>
-                    <input type="file" name="image" id="image" value="select" #selectFile
-                            (change)="onFileSelected($event)"
+                    <input type="file" name="image" id="image" value="select"
+                            
                         class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
-                        placeholder="*******" [(ngModel)]="product.image">
+                        placeholder="*******" multiple (change)="onFileSelected($event)">
                 </div>
             </div>
             <div class="mt-6">

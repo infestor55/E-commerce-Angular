@@ -10,7 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { ForbidenComponent } from './forbiden/forbiden.component';
 import { FooterComponent } from './footer/footer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { CreateNewProductComponent } from './create-new-product/create-new-product.component';
@@ -23,6 +23,12 @@ import { MomsShopComponent } from './shops/moms-shop/moms-shop.component';
 import { ChildRearingComponent } from './shops/child-rearing/child-rearing.component';
 import { GamesToysComponent } from './shops/games-toys/games-toys.component';
 import { FurnitureComponent } from './shops/furniture/furniture.component';
+import { UserAddComponent } from './user-add/user-add.component';
+import { AdminSideBarComponent } from './admin-side-bar/admin-side-bar.component';
+import { ProductsDashBoardComponent } from './products-dash-board/products-dash-board.component';
+import { CategoriesDashBoardComponent } from './categories-dash-board/categories-dash-board.component';
+import { UsersListDashBoardComponent } from './users-list-dash-board/users-list-dash-board.component';
+import { BlogDashboardComponent } from './blog-dashboard/blog-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -43,14 +49,21 @@ import { FurnitureComponent } from './shops/furniture/furniture.component';
     MomsShopComponent,
     ChildRearingComponent,
     GamesToysComponent,
-    FurnitureComponent
+    FurnitureComponent,
+    UserAddComponent,
+    AdminSideBarComponent,
+    ProductsDashBoardComponent,
+    CategoriesDashBoardComponent,
+    UsersListDashBoardComponent,
+    BlogDashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

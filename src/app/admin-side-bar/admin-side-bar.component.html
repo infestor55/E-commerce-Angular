@@ -1,0 +1,40 @@
+
+<div class="flex h-screen bg-gray-100">
+    <div class="flex flex-col w-64 bg-white border-r">
+      <div class="flex flex-col h-0 flex-1">
+        <div class="flex items-center h-16 px-4 bg-gray-900">
+          <span class="text-lg font-bold text-white">Admin DashBoard</span>
+        </div>
+        <div class="flex-1 overflow-y-auto">
+          <nav class="flex-1 px-2 py-4 bg-gray-100">
+            <ul class="space-y-2">
+              <li>
+                <a routerLink="blogs" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 hover:text-gray-900">
+                  Blogs
+                </a>
+              </li>
+              <li>
+                <a routerLink="usersList" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 hover:text-gray-900">
+                  Users
+                </a>
+              </li>
+              <li>
+                <a routerLink="productsDashboard" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 hover:text-gray-900">
+                  Products
+                </a>
+              </li>
+              <li>
+                <a routerLink="categoriesDashboard" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 hover:text-gray-900">
+                  Categories
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="flex-1 flex flex-col items-center justify-center">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  

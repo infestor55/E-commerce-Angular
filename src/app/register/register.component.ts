@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-register',
@@ -9,40 +11,41 @@ import { NgForm } from '@angular/forms';
   
 })
 export class RegisterComponent implements OnInit {
-  showSuccessMessage: boolean;
-  serverErrorMessages: string;
-  constructor(public userService: UserService){}
-  ngOnInit(): void {
-    
-  }
-  onSubmit(form: NgForm){
-    this.userService.postUser(form.value).subscribe(
-      res => {
-        this.showSuccessMessage = true;
-        
-        this.resetForm(form)
-      },
-      err => {
-        if ( err.status == 500) {
-          this.serverErrorMessages = err.error.join('<br/>')
-        }
-        else 
-          this.serverErrorMessages = 'Something weent wrong Please contact Admin!';
-      
-      }
-    )
-  }
-  resetForm(form:NgForm){
-    this.userService.selectedUser={
+  
+  user = {
     name:'',
     email:'',
     password:'',
     phone:'',
     adress:''
-    }
-    form.resetForm()
-    this.serverErrorMessages = '';
+  }
+  image: any;
+select(e:any){
+  this.image = e.target.files[0];
+}
+
+  constructor(private userService: UserService,
+    private router: Router){}
+  ngOnInit(): void {
+    
   }
   
+  userRegister(){
+    let fd = new FormData()
+    fd.append('name', this.user.name)
+    fd.append('email', this.user.email)
+    fd.append('password', this.user.password)
+    fd.append('phone', this.user.phone)
+    fd.append('adress', this.user.adress)
+    fd.append('image', this.image)
+
+    this.userService.userRegister(fd).subscribe(
+      res=>{
+        this.router.navigate(['/login'])
+      }
+    )
+
+
+  }
 
 }

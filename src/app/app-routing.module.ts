@@ -15,12 +15,14 @@ import { MomsShopComponent } from './shops/moms-shop/moms-shop.component';
 import { ChildRearingComponent } from './shops/child-rearing/child-rearing.component';
 import { GamesToysComponent } from './shops/games-toys/games-toys.component';
 import { FurnitureComponent } from './shops/furniture/furniture.component';
-import { UserAddComponent } from './user-add/user-add.component';
+
 import { AdminSideBarComponent } from './admin-side-bar/admin-side-bar.component';
 import { BlogDashboardComponent } from './blog-dashboard/blog-dashboard.component';
 import { UsersListDashBoardComponent } from './users-list-dash-board/users-list-dash-board.component';
 import { ProductsDashBoardComponent } from './products-dash-board/products-dash-board.component';
 import { CategoriesDashBoardComponent } from './categories-dash-board/categories-dash-board.component';
+import { AuthorRegisterComponent } from './author-register/author-register.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -42,7 +44,7 @@ const routes: Routes = [
   { path: 'child-rearing', component: ChildRearingComponent},
     { path: 'games&toys', component: GamesToysComponent},
     { path: 'furniture', component: FurnitureComponent},
-    { path: 'user-add', component: UserAddComponent},
+    
     { path: 'admin', component: AdminSideBarComponent , children : [
       { path: 'blogs', component: BlogDashboardComponent},
       { path: 'usersList', component: UsersListDashBoardComponent},
@@ -50,7 +52,8 @@ const routes: Routes = [
       { path: 'categoriesDashboard', component: CategoriesDashBoardComponent},
     ]},
 
-    
+    { path: 'author-register', component: AuthorRegisterComponent},
+    { path: 'user-profile', component: UserProfileComponent},
 
 ];
 

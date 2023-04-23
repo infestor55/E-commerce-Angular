@@ -23,12 +23,14 @@ import { MomsShopComponent } from './shops/moms-shop/moms-shop.component';
 import { ChildRearingComponent } from './shops/child-rearing/child-rearing.component';
 import { GamesToysComponent } from './shops/games-toys/games-toys.component';
 import { FurnitureComponent } from './shops/furniture/furniture.component';
-import { UserAddComponent } from './user-add/user-add.component';
+
 import { AdminSideBarComponent } from './admin-side-bar/admin-side-bar.component';
 import { ProductsDashBoardComponent } from './products-dash-board/products-dash-board.component';
 import { CategoriesDashBoardComponent } from './categories-dash-board/categories-dash-board.component';
 import { UsersListDashBoardComponent } from './users-list-dash-board/users-list-dash-board.component';
 import { BlogDashboardComponent } from './blog-dashboard/blog-dashboard.component';
+import { AuthorRegisterComponent } from './author-register/author-register.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -50,12 +52,14 @@ import { BlogDashboardComponent } from './blog-dashboard/blog-dashboard.componen
     ChildRearingComponent,
     GamesToysComponent,
     FurnitureComponent,
-    UserAddComponent,
+    
     AdminSideBarComponent,
     ProductsDashBoardComponent,
     CategoriesDashBoardComponent,
     UsersListDashBoardComponent,
-    BlogDashboardComponent
+    BlogDashboardComponent,
+    AuthorRegisterComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

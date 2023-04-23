@@ -5,39 +5,51 @@
         <p class="text-gray-600 mb-6 text-sm">
             Fill in the form to post your product
         </p>
-        <form [formGroup]="productService.article" (ngSubmit)="addproduct()" method="post" autocomplete="off">
+        <form  method="post" autocomplete="off">
             <div class="space-y-2">
                 <div>
                     <label for="name" class="text-gray-600 mb-2 block">Product Name</label>
-                    <input type="text" name="name" id="name"
+                    <input [(ngModel)]=" product.name " type="text" name="name" id="name"
                         class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
-                        placeholder="Babies Product" formControlName="name" required>
+                        placeholder="Babies Product" >
                 </div>
                 <div>
                     <label for="Description" class="text-gray-600 mb-2 block">Product Description</label>
-                    <input type="text" name="description" id="Description"
+                    <input [(ngModel)]=" product.description " type="text" name="description" id="Description"
                         class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
-                        placeholder="Enter your product description here!" formControlName="description" required >
+                        placeholder="Enter your product description here!" >
                 </div>
                 <div>
                     <label for="price" class="text-gray-600 mb-2 block">Product Price</label>
-                    <input type="text" name="price" id="price"
+                    <input [(ngModel)]=" product.price " type="text" name="price" id="price"
                         class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
-                        placeholder="80$" formControlName="price" required>
+                        placeholder="80$" >
                 </div>
                 
                 <div>
                     <label for="color" class="text-gray-600 mb-2 block">Product Color</label>
-                    <input type="text" name="color" id="color"
+                    <input [(ngModel)]=" product.color " type="text" name="color" id="color"
                         class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
-                        placeholder="Blue" formControlName="color" required>
+                        placeholder="Blue">
+                </div>
+                <div>
+                    <label for="color" class="text-gray-600 mb-2 block">Owner</label>
+                    <input [(ngModel)]=" product.idOwner " type="text" name="color" id="color"
+                        class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
+                        placeholder="Blue">
+                </div>
+                <div>
+                    <label for="color" class="text-gray-600 mb-2 block">Category</label>
+                    <input [(ngModel)]=" product.idCategory " type="text" name="color" id="color"
+                        class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
+                        placeholder="Blue">
                 </div>
                 <div>
                     <label for="articleImage" class="text-gray-600 mb-2 block">Product Image</label>
-                    <input type="file" name="articleImage" id="image" value="select"
+                    <input (change)="select($event)" type="file" name="articleImage" id="image" value="select"
                             
                         class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
-                        placeholder="*******" multiple (change)="onSelectImage($event)" required>
+                        placeholder="*******" multiple>
                 </div>
             </div>
             <div class="mt-6">
@@ -49,10 +61,10 @@
                 </div>
             </div>
             <div class="mt-4">
-                <button type="submit"
-                    class="block w-full py-2 text-center text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium" [disabled]="!productService.article.valid">Post Your Product</button>
+                <button type="submit" (click)="addProduct()"
+                    class="block w-full py-2 text-center text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium">Post Your Product</button>
             </div>
-            <img *ngIf="imagePreview" style="width:80px; height: 80px ;" [src]="imagePreview" alt="">
+            
         </form>
 
         

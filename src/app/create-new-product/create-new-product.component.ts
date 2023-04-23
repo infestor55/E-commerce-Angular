@@ -1,6 +1,6 @@
+import { product } from './../model/product.model';
 
 import { ProductService } from './../services/product.service';
-import { Form, NgForm } from '@angular/forms';
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -12,47 +12,43 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-new-product.component.css']
 })
 export class CreateNewProductComponent implements OnInit {
-  imagePreview: any;
-
+  
+  product = {
+    name:'',
+    description:'',
+    price:'',
+    color:'',
+    idOwner:'',
+    idCategory:''
+  }
+  image: any;
+  select(e:any){
+    this.image = e.target.files[0];
+  }
   constructor(public productService: ProductService,
     public router : Router) { }
+
   ngOnInit():void {
 
   }
-  onSelectImage(event: any){
-    const file = (event.target as HTMLInputElement).files[0]
-    console.log(file.type)
-    this.productService.article.patchValue({
-      articleImage: file,
-    });
-    const allowedFileType = ['image/png' ,'image/jpg'  ,'image/jpeg'];
-    if(file && allowedFileType.includes(file.type)){
-      const reader = new FileReader()
-      reader.onload = () => {
-       this.imagePreview = reader.result as string
-       this.productService.article.get('articleImage')?.setValue(this.imagePreview)
-       console.log(this.imagePreview)
-      }
-     reader.readAsDataURL(file)
-     }
-  }
-  onSubmit(){
-    
-    }
+  addProduct(){
+    let fd = new FormData()
+    fd.append('name', this.product.name)
+    fd.append('description', this.product.description)
+    fd.append('price', this.product.price)
+    fd.append('color', this.product.color)
+    fd.append('idOwner', this.product.idOwner)
+    fd.append('idCategory', this.product.idCategory)
+    fd.append('image', this.image)
 
-    addproduct(){
-      this.productService.article.value
-      this.productService.addproduct().subscribe(res=>{
-        alert("Product created successfully")
-      },
-      err=>{
-        console.error(err)
-        alert("Error creating product");
+    this.productService.addproduct(fd).subscribe(
+      res=>{
+        this.router.navigate(['/home'])
       }
-      )
-      
-      
-    }
+    )
+
+
+  }
   }
   
   

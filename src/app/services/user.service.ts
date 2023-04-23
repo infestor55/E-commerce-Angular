@@ -6,24 +6,32 @@ import { User } from '../model/user.model';
   providedIn: 'root'
 })
 export class UserService {
-  PATH_OF_API = "http://localhost:8080/api";
-  requestHeader = new HttpHeaders(
-    {"No-Auth": "True"}
-  )
-  constructor(private httpclient: HttpClient) { }
+  
+  constructor(private http: HttpClient) { }
+  private url = 'http://localhost:8080/users/';
 
+  userRegister(user: any){
+    return this.http.post(this.url + 'user-register', user);
+   }
+  
 
-  public login (loginData){
-    return this.httpclient.post(this.PATH_OF_API + "/login", loginData, {headers: this.requestHeader})
-  }
-   selectedUser: User = {
-    name:'',
-    email:'',
-    password:'',
-    phone:'',
-    adress:''
-  }
-  public postUser(user: User){
-    return this.httpclient.post(this.PATH_OF_API +"/register", user);
-  }
+   userLogin(user: any){
+    return this.http.post(this.url + 'user-login', user);
+   }
+   isLoggedIn(){
+    let token = localStorage.getItem('token');
+    if(token){
+      return true
+    }else{
+      return false
+    }
+   }
+
+   getUserDataFromToken(){
+    let token = localStorage.getItem('token')
+    if(token){
+      let data = JSON.parse(window.atob(token.split('.')[1]))
+      return data;
+    }
+   }
 }

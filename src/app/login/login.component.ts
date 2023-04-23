@@ -2,23 +2,36 @@ import { UserAuthService } from './../services/user-auth.service';
 import { Component , OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private userServie: UserService, private UserAuthService:UserAuthService) { }
+
+user = {
+  email: '',
+  password: ''
+}
+
+  constructor(private userServie: UserService,
+    private router: Router) { }
   ngOnInit(): void {
 
   }
-  login(loginForm:NgForm){
-    this.userServie.login(loginForm.value).subscribe(
-      (res)=>{
-        console.log(res);
+  token:any;
+  
+  login(){
+    this.userServie.userLogin(this.user)
+    .subscribe(
+      res=>{
+      this.token = res
+        localStorage.setItem('token', this.token.myToken)
+        this.router.navigate(['/home'])
       },
-      (error)=>{
-        console.log(error);
+      err=>{
+        console.log(err)
       }
     )
   }

@@ -1,49 +1,50 @@
 
 <div class="contain">
     <div class="max-w-lg mx-auto shadow px-6 py-7 rounded overflow-hidden">
-        <h2 class="text-2xl uppercase font-medium mb-1">Create New Product</h2>
+        <h2 class="text-2xl uppercase font-medium mb-1">Create New Author Account</h2>
         <p class="text-gray-600 mb-6 text-sm">
-            Fill in the form to post your product
+            Fill in the form to create your account
         </p>
-        <form [formGroup]="userformservice.form" (ngSubmit)="onSubmit()" method="post" autocomplete="off">
+        <form  method="post" autocomplete="off">
             <div class="space-y-2">
                 <div>
-                   
-                    <input type="hidden"
+                    <label for="name" class="text-gray-600 mb-2 block">Author Name</label>
+                    <input [(ngModel)]=" author.name " type="text" name="name" id="name"
                         class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
-                         formControlName="_id">
+                          >
                 </div>
                 <div>
-                    <label for="name" class="text-gray-600 mb-2 block">Name</label>
-                    <input type="text"
+                    <label for="lastname" class="text-gray-600 mb-2 block">Author lastname</label>
+                    <input [(ngModel)]=" author.lastname " type="text" name="lastname" id="lastname"
                         class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
-                        formControlName="name" required>
+                           >
                 </div>
                 <div>
-                    <label for="Description" class="text-gray-600 mb-2 block">Father Name</label>
-                    <input type="text"
+                    <label for="price" class="text-gray-600 mb-2 block">email</label>
+                    <input [(ngModel)]=" author.email " type="text" name="price" id="price"
                         class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
-                         formControlName="fatherName"  >
-                </div>
-                <div>
-                    <label for="price" class="text-gray-600 mb-2 block">City</label>
-                    <input type="text"  
-                        class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
-                         formControlName="city" >
+                          >
                 </div>
                 
                 <div>
-                    <label for="color" class="text-gray-600 mb-2 block">Mobile</label>
-                    <input type="text" name="color" id="color"
+                    <label for="" class="text-gray-600 mb-2 block">password</label>
+                    <input [(ngModel)]=" author.password " type="password" name="" id=""
                         class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
-                        placeholder="Blue" formControlName="mobile" >
+                          >
                 </div>
                 <div>
-                    <label  class="text-gray-600 mb-2 block">Select Image</label>
-                    <input type="file" id="image" value="select"
+                    <label for="authorImage" class="text-gray-600 mb-2 block">Author Image</label>
+                    <input  type="file" (change)="select($event)" name="articleImage" id="image" value="select"
                             
                         class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
-                        placeholder="*******" (change)="onSelectImage($event)" >
+                          >
+                </div>
+                <div>
+                    <label for="Author" class="text-gray-600 mb-2 block">about</label>
+                    <input [(ngModel)]=" author.about " type="text" name="" id="" value=""
+                            
+                        class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
+                           >
                 </div>
             </div>
             <div class="mt-6">
@@ -54,11 +55,11 @@
                             href="#" class="text-primary">terms & conditions</a></label>
                 </div>
             </div>
-            <div class="mt-4">
-                <button type="submit"
-                    class="block w-full py-2 text-center text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium">Post Your infos</button>
+            <div class="mt-4"> 
+                <button type="submit" (click)="register()"
+                    class="block w-full py-2 text-center text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium">Register</button>
             </div>
-            <img *ngIf="imagePreview" style="width:80px; height: 80px ;" [src]="imagePreview" alt="">
+           
         </form>
 
         
